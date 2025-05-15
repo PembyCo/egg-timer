@@ -6,6 +6,7 @@ import { ThemeInitializer } from './theme-script';
 import { Analytics } from '@vercel/analytics/next';
 import { Montserrat, Poppins, Pacifico } from 'next/font/google';
 import Script from 'next/script';
+import Link from 'next/link';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -68,10 +69,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${montserrat.variable} ${poppins.variable} ${pacifico.variable}`}>
-      <body>
+      <body className="flex flex-col min-h-screen">
         <ThemeInitializer />
         <ThemeProvider>
-          {children}
+          <div className="flex-grow">
+            {children}
+          </div>
+          <footer className="w-full max-w-md mx-auto flex justify-center p-4 text-sm text-gray-500 dark:text-gray-400">
+            <div className="flex space-x-4">
+              <Link href="/legal/terms" className="hover:text-amber-500 dark:hover:text-amber-400">Terms</Link>
+              <span>•</span>
+              <Link href="/legal/privacy" className="hover:text-amber-500 dark:hover:text-amber-400">Privacy</Link>
+              <span>•</span>
+              <span>© {new Date().getFullYear()} PembyCo</span>
+            </div>
+          </footer>
         </ThemeProvider>
         <Analytics />
         <Script id="schema-structured-data" type="application/ld+json">
