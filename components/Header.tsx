@@ -20,9 +20,12 @@ const Header: React.FC = () => {
           className={`w-6 h-6 sm:w-7 sm:h-7 text-amber-500 dark:text-amber-400 transition-all duration-300 flex-shrink-0 ${
             isIconHovered ? "scale-125 text-amber-600 dark:text-amber-500" : ""
           } ${isIconHovered ? "animate-wiggle" : "animate-bounce-slow"}`}
+          aria-hidden="true"
+          role="img"
+          title="Fire icon"
         />
         <h1 className="text-2xl sm:text-3xl font-bold font-display tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-yellow-600 dark:from-amber-400 dark:to-yellow-500 animate-pulse pb-1 leading-relaxed">
-          Eggs On Time
+          Egg Timer: Perfect Eggs in Seconds
         </h1>
         
         <button 
@@ -30,7 +33,10 @@ const Header: React.FC = () => {
           className="ml-auto p-2.5 bg-white/90 dark:bg-gray-800/90 text-amber-500 dark:text-amber-400 rounded-full shadow-md hover:shadow-lg transition-all hover:scale-105 border border-amber-100 dark:border-gray-700"
           aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
         >
-          {isDarkMode ? <FaSun className="w-4 h-4 sm:w-5 sm:h-5" /> : <FaMoon className="w-4 h-4 sm:w-5 sm:h-5" />}
+          {isDarkMode ? 
+            <FaSun className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" title="Sun icon" /> : 
+            <FaMoon className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" title="Moon icon" />
+          }
         </button>
       </div>
     </div>

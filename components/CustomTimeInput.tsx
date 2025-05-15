@@ -17,7 +17,8 @@ const CustomTimeInput: React.FC<CustomTimeInputProps> = ({
 }) => {
   return (
     <div className="mb-6">
-      <form onSubmit={onSubmit} className="flex items-center justify-center gap-2">
+      <form onSubmit={onSubmit} className="flex items-center justify-center gap-2" aria-labelledby="custom-time-heading">
+        <span id="custom-time-heading" className="sr-only">Custom Cooking Time</span>
         <input
           ref={inputRef}
           type="number"
@@ -26,12 +27,13 @@ const CustomTimeInput: React.FC<CustomTimeInputProps> = ({
           value={customMinutes}
           onChange={(e) => setCustomMinutes(Math.max(1, Math.min(60, parseInt(e.target.value) || 1)))}
           className="w-16 px-3 py-2 border border-amber-200 dark:border-amber-700 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-amber-400 dark:focus:ring-amber-500 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200"
-          aria-label="Custom minutes"
+          aria-label="Custom minutes (1-60)"
         />
-        <span className="text-amber-700 dark:text-amber-400">minutes</span>
+        <span className="text-amber-700 dark:text-amber-400" aria-hidden="true">minutes</span>
         <button
           type="submit"
           className="px-3 py-2 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-colors"
+          aria-label="Set custom timer"
         >
           Set
         </button>

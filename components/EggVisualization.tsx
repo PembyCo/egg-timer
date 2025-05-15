@@ -10,7 +10,13 @@ const EggVisualization: React.FC<EggVisualizationProps> = ({ fillPercentage }) =
   return (
     <div className="flex justify-center mb-6">
       <div className="relative w-44 h-64">
-        <svg className="w-full h-full" viewBox="0 0 100 140">
+        <svg 
+          className="w-full h-full" 
+          viewBox="0 0 100 140"
+          aria-label={`Egg timer visualization, ${Math.round(fillPercentage)}% complete`}
+          role="img"
+        >
+          <title>Egg timer filling visualization</title>
           {/* Egg shape with more rounded bottom */}
           <path
             d="M50 20 C35 20 25 30 15 55 C5 85 5 110 25 125 C40 135 60 135 75 125 C95 110 95 85 85 55 C75 30 65 20 50 20"
@@ -31,6 +37,7 @@ const EggVisualization: React.FC<EggVisualizationProps> = ({ fillPercentage }) =
             fill="url(#eggGradient)"
             clipPath="url(#eggClip)"
             style={{ transition: "y 0.1s linear" }}
+            aria-hidden="true"
           />
           <defs>
             <linearGradient id="eggGradient" x1="0%" y1="0%" x2="100%" y2="0%">
