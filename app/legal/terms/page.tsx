@@ -28,39 +28,39 @@ export default function TermsPage() {
         </div>
 
         <div className="prose prose-amber dark:prose-invert max-w-none">
-          <p>By accessing or using the Egg Timer app ("the App"), you agree to these Terms. If you do not agree, please stop using the App immediately.</p>
+          <p className="dark:text-white">By accessing or using the Egg Timer app ("the App"), you agree to these Terms. If you do not agree, please stop using the App immediately.</p>
 
-          <h2 className="text-xl font-bold mt-6">1. Eligibility & Age Requirements</h2>
-          <p>You must be at least 13 years old to use the App.</p>
-          <p>We do not knowingly collect personal data from children under 13; if we learn we have, we will delete it promptly.</p>
+          <h2 className="text-xl font-bold mt-6 dark:text-white">1. Eligibility & Age Requirements</h2>
+          <p className="dark:text-white">You must be at least 13 years old to use the App.</p>
+          <p className="dark:text-white">We do not knowingly collect personal data from children under 13; if we learn we have, we will delete it promptly.</p>
 
-          <h2 className="text-xl font-bold mt-6">2. Licence & Ownership</h2>
-          <p>We grant you a limited, revocable, non-exclusive licence to use the App for personal cooking-timer purposes.</p>
-          <p>All intellectual property rights in the App (code, design, trademarks) are owned by LPR Nexus LTD.</p>
+          <h2 className="text-xl font-bold mt-6 dark:text-white">2. Licence & Ownership</h2>
+          <p className="dark:text-white">We grant you a limited, revocable, non-exclusive licence to use the App for personal cooking-timer purposes.</p>
+          <p className="dark:text-white">All intellectual property rights in the App (code, design, trademarks) are owned by LPR Nexus LTD.</p>
 
-          <h2 className="text-xl font-bold mt-6">3. Acceptable Use</h2>
-          <p>You must not:</p>
-          <ul className="list-disc pl-6">
+          <h2 className="text-xl font-bold mt-6 dark:text-white">3. Acceptable Use</h2>
+          <p className="dark:text-white">You must not:</p>
+          <ul className="list-disc pl-6 dark:text-white">
             <li>Reverse-engineer, decompile, or modify the App.</li>
             <li>Use the App for unlawful purposes or in breach of any applicable laws or regulations.</li>
             <li>Impersonate any person or entity or misrepresent your affiliation with anyone.</li>
           </ul>
 
-          <h2 className="text-xl font-bold mt-6">4. Disclaimers & Safety</h2>
-          <p><strong>No Warranty:</strong> The App is provided "as-is" and "as-available," without any warranty of any kind.</p>
-          <p><strong>Use at Your Own Risk:</strong> You assume all risk for cooking results. We accept no liability for under- or over-cooked eggs or any injury or damage arising from use of the App.</p>
+          <h2 className="text-xl font-bold mt-6 dark:text-white">4. Disclaimers & Safety</h2>
+          <p className="dark:text-white"><strong>No Warranty:</strong> The App is provided "as-is" and "as-available," without any warranty of any kind.</p>
+          <p className="dark:text-white"><strong>Use at Your Own Risk:</strong> You assume all risk for cooking results. We accept no liability for under- or over-cooked eggs or any injury or damage arising from use of the App.</p>
 
-          <h2 className="text-xl font-bold mt-6">5. Limitation of Liability</h2>
-          <p>To the fullest extent permitted by law, LPR Nexus LTD shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from your use of (or inability to use) the App, even if advised of the possibility of such damages.</p>
+          <h2 className="text-xl font-bold mt-6 dark:text-white">5. Limitation of Liability</h2>
+          <p className="dark:text-white">To the fullest extent permitted by law, LPR Nexus LTD shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from your use of (or inability to use) the App, even if advised of the possibility of such damages.</p>
 
-          <h2 className="text-xl font-bold mt-6">6. Termination</h2>
-          <p>We may suspend or terminate your access to the App at any time, without notice, for any reason, including for breach of these Terms.</p>
+          <h2 className="text-xl font-bold mt-6 dark:text-white">6. Termination</h2>
+          <p className="dark:text-white">We may suspend or terminate your access to the App at any time, without notice, for any reason, including for breach of these Terms.</p>
 
-          <h2 className="text-xl font-bold mt-6">7. Changes to Terms</h2>
-          <p>We reserve the right to update these Terms at any time by posting a new version here. Your continued use after changes implies your acceptance.</p>
+          <h2 className="text-xl font-bold mt-6 dark:text-white">7. Changes to Terms</h2>
+          <p className="dark:text-white">We reserve the right to update these Terms at any time by posting a new version here. Your continued use after changes implies your acceptance.</p>
 
-          <h2 className="text-xl font-bold mt-6">8. Governing Law & Dispute Resolution</h2>
-          <p>These Terms are governed by the laws of England & Wales. You agree that any dispute will be resolved exclusively in the courts of England & Wales.</p>
+          <h2 className="text-xl font-bold mt-6 dark:text-white">8. Governing Law & Dispute Resolution</h2>
+          <p className="dark:text-white">These Terms are governed by the laws of England & Wales. You agree that any dispute will be resolved exclusively in the courts of England & Wales.</p>
         </div>
 
         <div className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-6">

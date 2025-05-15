@@ -3,22 +3,24 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+    dataLayer: any[];
+  }
+}
+
 export default function CookieConsent() {
   const [showConsent, setShowConsent] = useState(false);
 
   // Function to set up analytics when user consents
   const setupAnalytics = () => {
-    // This would be where you initialize analytics that require consent
-    // For example, if you're using Google Analytics or other tracking
-    
-    // Example code if you were using Google Analytics:
-    /*
+    // Enable Google Analytics consent
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('consent', 'update', {
         analytics_storage: 'granted'
       });
     }
-    */
     
     // For Vercel Analytics, they respect DNT (Do Not Track) browser settings
     // No explicit enabling needed as it's already in your layout
@@ -34,8 +36,21 @@ export default function CookieConsent() {
     } else if (hasConsented === null) {
       // First visit, show consent dialog
       setShowConsent(true);
+      
+      // Default state should be to deny until consent is given
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('consent', 'default', {
+          analytics_storage: 'denied'
+        });
+      }
+    } else if (hasConsented === 'false') {
+      // User previously declined, make sure analytics are disabled
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('consent', 'default', {
+          analytics_storage: 'denied'
+        });
+      }
     }
-    // If hasConsented is 'false', do nothing (user declined)
   }, []);
 
   const acceptCookies = () => {
@@ -46,6 +61,14 @@ export default function CookieConsent() {
 
   const declineCookies = () => {
     localStorage.setItem('cookieConsent', 'false');
+    
+    // Explicitly deny analytics when user declines
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('consent', 'update', {
+        analytics_storage: 'denied'
+      });
+    }
+    
     setShowConsent(false);
   };
 

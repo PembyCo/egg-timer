@@ -27,50 +27,50 @@ export default function PrivacyPage() {
         </div>
 
         <div className="prose prose-amber dark:prose-invert max-w-none">
-          <p>We respect your privacy worldwide. This Policy explains what we collect, why, how we use it, and your rights under various laws (GDPR, CCPA, COPPA, LGPD, PIPEDA, APPs, APPI, etc.).</p>
+          <p className="dark:text-white">We respect your privacy worldwide. This Policy explains what we collect, why, how we use it, and your rights under various laws (GDPR, CCPA, COPPA, LGPD, PIPEDA, APPs, APPI, etc.).</p>
 
-          <h2 className="text-xl font-bold mt-6">1. Data We Collect</h2>
-          <p className="font-semibold">Analytics & Telemetry</p>
-          <ul className="list-disc pl-6 mb-4">
+          <h2 className="text-xl font-bold mt-6 dark:text-white">1. Data We Collect</h2>
+          <p className="font-semibold dark:text-white">Analytics & Telemetry</p>
+          <ul className="list-disc pl-6 mb-4 dark:text-white">
             <li>Providers: Google Analytics, Cursor AI telemetry, Vercel Analytics</li>
             <li>Data: anonymised IP address, device/browser info, session duration, feature usage</li>
           </ul>
 
-          <p className="font-semibold">Cookies & localStorage</p>
-          <ul className="list-disc pl-6">
+          <p className="font-semibold dark:text-white">Cookies & localStorage</p>
+          <ul className="list-disc pl-6 dark:text-white">
             <li>Cookies: only set after you consent to analytics cookies</li>
             <li>localStorage: stores your timer settings and in-progress inputs</li>
           </ul>
 
-          <p>We do not collect your name, email, precise location, or other personal identifiers.</p>
+          <p className="dark:text-white">We do not collect your name, email, precise location, or other personal identifiers.</p>
 
-          <h2 className="text-xl font-bold mt-6">2. How We Use Your Data</h2>
-          <p><strong>Improvement & Diagnostics:</strong> to analyse performance, fix errors, and enhance features.</p>
-          <p><strong>Compliance & Security:</strong> to detect and prevent abuse.</p>
+          <h2 className="text-xl font-bold mt-6 dark:text-white">2. How We Use Your Data</h2>
+          <p className="dark:text-white"><strong>Improvement & Diagnostics:</strong> to analyse performance, fix errors, and enhance features.</p>
+          <p className="dark:text-white"><strong>Compliance & Security:</strong> to detect and prevent abuse.</p>
 
-          <h2 className="text-xl font-bold mt-6">3. Legal Bases under GDPR</h2>
-          <p><strong>Legitimate Interests:</strong> for analytics and product improvement, balanced against your privacy.</p>
-          <p><strong>Consent:</strong> for any non-essential cookies or tracking (you can withdraw consent at any time).</p>
+          <h2 className="text-xl font-bold mt-6 dark:text-white">3. Legal Bases under GDPR</h2>
+          <p className="dark:text-white"><strong>Legitimate Interests:</strong> for analytics and product improvement, balanced against your privacy.</p>
+          <p className="dark:text-white"><strong>Consent:</strong> for any non-essential cookies or tracking (you can withdraw consent at any time).</p>
 
-          <h2 className="text-xl font-bold mt-6">4. Cookies & Tracking Consent</h2>
-          <p>We present a banner on first visit:</p>
-          <ul className="list-disc pl-6">
+          <h2 className="text-xl font-bold mt-6 dark:text-white">4. Cookies & Tracking Consent</h2>
+          <p className="dark:text-white">We present a banner on first visit:</p>
+          <ul className="list-disc pl-6 dark:text-white">
             <li>Explains cookie categories (essential, analytics, functional).</li>
             <li>Allows you to accept or reject each category.</li>
             <li>Analytics cookies only load after you opt in.</li>
           </ul>
 
-          <h2 className="text-xl font-bold mt-6">5. International Data Transfers</h2>
-          <p>Analytics providers may process data outside the UK/EEA (e.g., in the U.S.). We rely on Standard Contractual Clauses (UK-approved SCCs) or equivalent safeguards to protect your data.</p>
+          <h2 className="text-xl font-bold mt-6 dark:text-white">5. International Data Transfers</h2>
+          <p className="dark:text-white">Analytics providers may process data outside the UK/EEA (e.g., in the U.S.). We rely on Standard Contractual Clauses (UK-approved SCCs) or equivalent safeguards to protect your data.</p>
 
-          <h2 className="text-xl font-bold mt-6">6. Data Retention & Security</h2>
-          <p>We do not retain personal data ourselves; it is held by our analytics providers under their policies.</p>
-          <p>All communications occur over HTTPS; data in transit is encrypted.</p>
+          <h2 className="text-xl font-bold mt-6 dark:text-white">6. Data Retention & Security</h2>
+          <p className="dark:text-white">We do not retain personal data ourselves; it is held by our analytics providers under their policies.</p>
+          <p className="dark:text-white">All communications occur over HTTPS; data in transit is encrypted.</p>
 
-          <h2 className="text-xl font-bold mt-6">7. Your Rights</h2>
-          <p className="font-semibold">Under GDPR (EU/UK) – Articles 15–22</p>
-          <p>You have the right to:</p>
-          <ul className="list-disc pl-6 mb-4">
+          <h2 className="text-xl font-bold mt-6 dark:text-white">7. Your Rights</h2>
+          <p className="font-semibold dark:text-white">Under GDPR (EU/UK) – Articles 15–22</p>
+          <p className="dark:text-white">You have the right to:</p>
+          <ul className="list-disc pl-6 mb-4 dark:text-white">
             <li>Access the personal data we hold.</li>
             <li>Rectify inaccurate data.</li>
             <li>Erase your data (&quot;right to be forgotten&quot;).</li>
@@ -80,25 +80,25 @@ export default function PrivacyPage() {
             <li>Withdraw consent for any processing that relied on it.</li>
           </ul>
 
-          <p className="font-semibold">California Residents (CCPA)</p>
-          <p>You have the right to:</p>
-          <ul className="list-disc pl-6 mb-4">
+          <p className="font-semibold dark:text-white">California Residents (CCPA)</p>
+          <p className="dark:text-white">You have the right to:</p>
+          <ul className="list-disc pl-6 mb-4 dark:text-white">
             <li>Know what personal data is collected, used, shared, or sold.</li>
             <li>Delete personal information we hold about you.</li>
             <li>Opt-out of sale of your personal information (we do not sell data, but you may still request opt-out).</li>
             <li>Non-discrimination for exercising your rights.</li>
           </ul>
 
-          <p>To exercise any rights, or if you have questions, email <a href="mailto:hello@lprnexus.com" className="text-amber-500 hover:underline">hello@lprnexus.com</a>.</p>
+          <p className="dark:text-white">To exercise any rights, or if you have questions, email <a href="mailto:hello@lprnexus.com" className="text-amber-500 hover:underline">hello@lprnexus.com</a>.</p>
 
-          <h2 className="text-xl font-bold mt-6">8. Children&apos;s Privacy (COPPA)</h2>
-          <p>The App is not intended for users under 13. We do not knowingly collect personal data from children under 13; any such data will be deleted promptly.</p>
+          <h2 className="text-xl font-bold mt-6 dark:text-white">8. Children&apos;s Privacy (COPPA)</h2>
+          <p className="dark:text-white">The App is not intended for users under 13. We do not knowingly collect personal data from children under 13; any such data will be deleted promptly.</p>
 
-          <h2 className="text-xl font-bold mt-6">9. Global Compliance Notice</h2>
-          <p>Residents of other jurisdictions (e.g., Canada&apos;s PIPEDA, Brazil&apos;s LGPD, Australia&apos;s APPs, Japan&apos;s APPI) may have additional rights under local law. Please contact us at <a href="mailto:hello@lprnexus.com" className="text-amber-500 hover:underline">hello@lprnexus.com</a> for more information.</p>
+          <h2 className="text-xl font-bold mt-6 dark:text-white">9. Global Compliance Notice</h2>
+          <p className="dark:text-white">Residents of other jurisdictions (e.g., Canada&apos;s PIPEDA, Brazil&apos;s LGPD, Australia&apos;s APPs, Japan&apos;s APPI) may have additional rights under local law. Please contact us at <a href="mailto:hello@lprnexus.com" className="text-amber-500 hover:underline">hello@lprnexus.com</a> for more information.</p>
 
-          <h2 className="text-xl font-bold mt-6">10. Changes to This Policy</h2>
-          <p>We may update this Policy; the &quot;Last updated&quot; date will change accordingly. Please review periodically.</p>
+          <h2 className="text-xl font-bold mt-6 dark:text-white">10. Changes to This Policy</h2>
+          <p className="dark:text-white">We may update this Policy; the &quot;Last updated&quot; date will change accordingly. Please review periodically.</p>
         </div>
 
         <div className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-6">

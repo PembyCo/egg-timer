@@ -41,6 +41,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: [
+      { url: '/favicon-square.svg', type: 'image/svg+xml' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico' },
+    ],
+    apple: [
+      { url: '/favicon-square.svg', type: 'image/svg+xml' },
+    ],
+  },
   openGraph: {
     title: 'Eggs On Time – Perfect Eggs in Minutes!',
     description: 'Set and track your eggs with ease. No signup required!',
@@ -76,12 +86,41 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${montserrat.variable} ${poppins.variable} ${pacifico.variable}`}>
       <body className="flex flex-col min-h-screen">
+        {/* Google Analytics with Consent Mode */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-FP7FK0DTHJ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            // Default consent to denied until user accepts
+            gtag('consent', 'default', {
+              'analytics_storage': 'denied'
+            });
+            
+            // Check if user has already given consent
+            const hasConsented = localStorage.getItem('cookieConsent');
+            if (hasConsented === 'true') {
+              gtag('consent', 'update', {
+                'analytics_storage': 'granted'
+              });
+            }
+            
+            gtag('config', 'G-FP7FK0DTHJ', {
+              'anonymize_ip': true
+            });
+          `}
+        </Script>
         <ThemeInitializer />
         <ThemeProvider>
           <div className="flex-grow">
             {children}
           </div>
-          <footer className="w-full max-w-md mx-auto flex justify-center p-4 text-sm text-gray-500 dark:text-gray-400">
+          <footer className="w-full bg-white dark:bg-[#1f2937] mx-auto flex justify-center p-4 text-sm text-gray-600 dark:text-gray-300">
             <div className="flex space-x-4">
               <Link href="/legal/terms" className="hover:text-amber-500 dark:hover:text-amber-400">Terms</Link>
               <span>•</span>
