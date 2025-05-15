@@ -5,6 +5,7 @@ import { ThemeProvider } from '../components/ThemeContext';
 import { ThemeInitializer } from './theme-script';
 import { Analytics } from '@vercel/analytics/next';
 import { Montserrat, Poppins } from 'next/font/google';
+import Script from 'next/script';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -63,6 +64,23 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
         <Analytics />
+        <Script id="schema-structured-data" type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "HowTo",
+              "name": "How to Use the Egg Timer",
+              "step": [
+                { "@type": "HowToStep", "text": "Choose soft, medium, or hard" },
+                { "@type": "HowToStep", "text": "Click start" },
+                { "@type": "HowToStep", "text": "Listen for the ding!" }
+              ],
+              "tool": "Egg Timer App",
+              "image": "https://eggsontime.app/og-image.png",
+              "url": "https://eggsontime.app/"
+            }
+          `}
+        </Script>
       </body>
     </html>
   );
