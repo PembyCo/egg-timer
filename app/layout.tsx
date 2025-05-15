@@ -56,6 +56,9 @@ export const metadata: Metadata = {
     description: 'Set and track your eggs with ease. No signup required!',
     images: ['/og-image.png'],
   },
+  verification: {
+    google: 'rjHZhRYUeTHE2iBt9uJUgHd3qVdN0ajbC6YIWG7GonE',
+  },
 };
 
 export default function RootLayout({
