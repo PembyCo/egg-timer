@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "buildCommand": "cd egg-timer-nextjs && npm install && npm run build",
+  "devCommand": "cd egg-timer-nextjs && npm run dev",
+  "outputDirectory": "egg-timer-nextjs/.next",
+  "installCommand": "cd egg-timer-nextjs && npm install"
+} 
