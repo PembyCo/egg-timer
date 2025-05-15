@@ -12,6 +12,7 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-poppins)', 'sans-serif'],
         display: ['var(--font-montserrat)', 'sans-serif'],
+        cursive: ['var(--font-pacifico)', 'cursive'],
       },
       animation: {
         'bounce-slow': 'bounce 3s linear infinite',

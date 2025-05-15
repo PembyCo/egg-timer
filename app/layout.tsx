@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { ThemeProvider } from '../components/ThemeContext';
 import { ThemeInitializer } from './theme-script';
 import { Analytics } from '@vercel/analytics/next';
-import { Montserrat, Poppins } from 'next/font/google';
+import { Montserrat, Poppins, Pacifico } from 'next/font/google';
 import Script from 'next/script';
 
 const montserrat = Montserrat({
@@ -20,15 +20,22 @@ const poppins = Poppins({
   variable: '--font-poppins',
 });
 
+const pacifico = Pacifico({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: '400',
+  variable: '--font-pacifico',
+});
+
 export const metadata: Metadata = {
-  title: 'Egg Timer – Simple & Accurate Kitchen Timer',
+  title: 'Eggs On Time – Perfect Eggs in Minutes!',
   description: 'Use our free egg timer to get perfect hard, soft, and medium-boiled eggs every time.',
   metadataBase: new URL('https://eggsontime.app'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Egg Timer – Perfect Eggs Every Time',
+    title: 'Eggs On Time – Perfect Eggs in Minutes!',
     description: 'Set and track your eggs with ease. No signup required!',
     url: 'https://eggsontime.app',
     siteName: 'Eggs On Time',
@@ -45,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Egg Timer – Perfect Eggs Every Time',
+    title: 'Eggs On Time – Perfect Eggs in Minutes!',
     description: 'Set and track your eggs with ease. No signup required!',
     images: ['/og-image.png'],
   },
@@ -57,7 +64,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${montserrat.variable} ${poppins.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${montserrat.variable} ${poppins.variable} ${pacifico.variable}`}>
       <body>
         <ThemeInitializer />
         <ThemeProvider>
