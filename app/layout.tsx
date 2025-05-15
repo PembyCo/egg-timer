@@ -7,6 +7,12 @@ import { Analytics } from '@vercel/analytics/next';
 import { Montserrat, Poppins, Pacifico } from 'next/font/google';
 import Script from 'next/script';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+
+// Import CookieConsent with dynamic to avoid hydration issues with localStorage
+const CookieConsent = dynamic(() => import('../components/CookieConsent'), {
+  ssr: false,
+});
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -84,6 +90,7 @@ export default function RootLayout({
               <span>© {new Date().getFullYear()} PembyCo</span>
             </div>
           </footer>
+          <CookieConsent />
         </ThemeProvider>
         <Analytics />
         <Script id="schema-structured-data" type="application/ld+json">
