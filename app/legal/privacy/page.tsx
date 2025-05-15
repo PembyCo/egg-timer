@@ -73,7 +73,7 @@ export default function PrivacyPage() {
           <ul className="list-disc pl-6 mb-4">
             <li>Access the personal data we hold.</li>
             <li>Rectify inaccurate data.</li>
-            <li>Erase your data ("right to be forgotten").</li>
+            <li>Erase your data (&quot;right to be forgotten&quot;).</li>
             <li>Restrict processing.</li>
             <li>Port your data to another controller.</li>
             <li>Object to processing based on legitimate interests.</li>
@@ -91,14 +91,14 @@ export default function PrivacyPage() {
 
           <p>To exercise any rights, or if you have questions, email <a href="mailto:hello@lprnexus.com" className="text-amber-500 hover:underline">hello@lprnexus.com</a>.</p>
 
-          <h2 className="text-xl font-bold mt-6">8. Children's Privacy (COPPA)</h2>
+          <h2 className="text-xl font-bold mt-6">8. Children&apos;s Privacy (COPPA)</h2>
           <p>The App is not intended for users under 13. We do not knowingly collect personal data from children under 13; any such data will be deleted promptly.</p>
 
           <h2 className="text-xl font-bold mt-6">9. Global Compliance Notice</h2>
-          <p>Residents of other jurisdictions (e.g., Canada's PIPEDA, Brazil's LGPD, Australia's APPs, Japan's APPI) may have additional rights under local law. Please contact us at <a href="mailto:hello@lprnexus.com" className="text-amber-500 hover:underline">hello@lprnexus.com</a> for more information.</p>
+          <p>Residents of other jurisdictions (e.g., Canada&apos;s PIPEDA, Brazil&apos;s LGPD, Australia&apos;s APPs, Japan&apos;s APPI) may have additional rights under local law. Please contact us at <a href="mailto:hello@lprnexus.com" className="text-amber-500 hover:underline">hello@lprnexus.com</a> for more information.</p>
 
           <h2 className="text-xl font-bold mt-6">10. Changes to This Policy</h2>
-          <p>We may update this Policy; the "Last updated" date will change accordingly. Please review periodically.</p>
+          <p>We may update this Policy; the &quot;Last updated&quot; date will change accordingly. Please review periodically.</p>
         </div>
 
         <div className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-6">
