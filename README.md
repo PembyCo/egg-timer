@@ -34,4 +34,4 @@ A beautiful, responsive egg timer application that helps you cook perfect eggs e
 
 ## Deployment
 
-This Next.js application can be easily deployed to platforms like Vercel or Netlify. 
+Available at: [https://egg-timer-seven.vercel.app/](https://egg-timer-seven.vercel.app/)
