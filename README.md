@@ -1,13 +1,6 @@
-# Egg Timer App
+# Eggs On Time
 
 A beautiful, responsive egg timer application that helps you cook perfect eggs every time.
-
-## Project Structure
-
-This project contains two versions of the egg timer app:
-
-1. **Original version (CRA)**: In the main directory, built with Create React App
-2. **Next.js version**: In the `egg-timer-nextjs` directory, migrated to Next.js
 
 ## Features
 
@@ -17,10 +10,28 @@ This project contains two versions of the egg timer app:
 - Responsive design with beautiful UI
 - Animated fire icon in header
 - Anatomically correct egg shape visualization
+- Dark mode support with theme toggle
+- Mobile-friendly responsive layout
 
 ## Technologies Used
 
-- React / Next.js
+- Next.js
 - TypeScript
-- Tailwind CSS 
+- Tailwind CSS
 - React Icons
+
+## Getting Started
+
+1. Install dependencies:
+   ```
+   npm install
+   ```
+2. Start the development server:
+   ```
+   npm run dev
+   ```
+3. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Deployment
+
+This Next.js application can be easily deployed to platforms like Vercel or Netlify. 
