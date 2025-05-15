@@ -20,8 +20,34 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Eggs On Time',
-  description: 'A beautiful egg timer application for cooking perfect eggs',
+  title: 'Egg Timer – Simple & Accurate Kitchen Timer',
+  description: 'Use our free egg timer to get perfect hard, soft, and medium-boiled eggs every time.',
+  metadataBase: new URL('https://eggsontime.app'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Egg Timer – Perfect Eggs Every Time',
+    description: 'Set and track your eggs with ease. No signup required!',
+    url: 'https://eggsontime.app',
+    siteName: 'Eggs On Time',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Eggs On Time - Egg Timer App',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Egg Timer – Perfect Eggs Every Time',
+    description: 'Set and track your eggs with ease. No signup required!',
+    images: ['/og-image.png'],
+  },
 };
 
 export default function RootLayout({
