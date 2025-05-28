@@ -25,7 +25,7 @@ const Header: React.FC = () => {
             role="img"
             title="Fire icon"
         />
-          <h1 className="text-3xl sm:text-4xl font-bold font-display tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-yellow-600 dark:from-amber-400 dark:to-yellow-500 pb-1 leading-relaxed text-center">
+          <h1 className="text-2xl sm:text-4xl font-bold font-display tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-yellow-600 dark:from-amber-400 dark:to-yellow-500 pb-1 leading-relaxed text-center whitespace-nowrap">
           Eggs On Time
         </h1>
         
