@@ -36,4 +36,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 The app is deployed on Vercel and can be accessed at [eggsontime.app](https://eggsontime.app).
 
-<!-- Deployment trigger: ESLint fixes applied -->
+<!-- Deployment trigger: ESLint fixes applied - Updated: 2024-12-19 -->
