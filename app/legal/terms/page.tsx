@@ -28,7 +28,7 @@ export default function TermsPage() {
         </div>
 
         <div className="prose prose-amber dark:prose-invert max-w-none">
-          <p className="dark:text-white">By accessing or using the Egg Timer app ("the App"), you agree to these Terms. If you do not agree, please stop using the App immediately.</p>
+          <p className="dark:text-white">By accessing or using the Egg Timer app (&quot;the App&quot;), you agree to these Terms. If you do not agree, please stop using the App immediately.</p>
 
           <h2 className="text-xl font-bold mt-6 dark:text-white">1. Eligibility & Age Requirements</h2>
           <p className="dark:text-white">You must be at least 13 years old to use the App.</p>
@@ -47,7 +47,7 @@ export default function TermsPage() {
           </ul>
 
           <h2 className="text-xl font-bold mt-6 dark:text-white">4. Disclaimers & Safety</h2>
-          <p className="dark:text-white"><strong>No Warranty:</strong> The App is provided "as-is" and "as-available," without any warranty of any kind.</p>
+          <p className="dark:text-white"><strong>No Warranty:</strong> The App is provided &quot;as-is&quot; and &quot;as-available,&quot; without any warranty of any kind.</p>
           <p className="dark:text-white"><strong>Use at Your Own Risk:</strong> You assume all risk for cooking results. We accept no liability for under- or over-cooked eggs or any injury or damage arising from use of the App.</p>
 
           <h2 className="text-xl font-bold mt-6 dark:text-white">5. Limitation of Liability</h2>
