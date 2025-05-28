@@ -180,7 +180,7 @@ const EggTimer: React.FC = () => {
       {/* Timer display */}
       <section>
         <h3 className="sr-only">Timer Display</h3>
-        <div className="text-2xl sm:text-4xl font-mono text-center mb-3 sm:mb-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-yellow-600 dark:from-amber-400 dark:to-yellow-500 font-bold">
+        <div className="text-3xl sm:text-5xl font-mono text-center mb-3 sm:mb-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-yellow-600 dark:from-amber-400 dark:to-yellow-500 font-bold">
           {String(displayMinutes).padStart(2, "0")}:{String(displaySeconds).padStart(2, "0")}
         </div>
       </section>
