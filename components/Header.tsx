@@ -25,9 +25,14 @@ const Header: React.FC = () => {
             role="img"
             title="Fire icon"
         />
-          <h1 className="text-2xl sm:text-4xl font-bold font-display tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-yellow-600 dark:from-amber-400 dark:to-yellow-500 pb-1 leading-relaxed text-center whitespace-nowrap">
-          Eggs On Time
-        </h1>
+          <div className="flex flex-col flex-1">
+            <h1 className="text-2xl sm:text-4xl font-bold font-display tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-yellow-600 dark:from-amber-400 dark:to-yellow-500 pb-1 leading-relaxed whitespace-nowrap">
+              Eggs On Time
+            </h1>
+            <h2 className="font-cursive text-xl sm:text-2xl text-amber-600 dark:text-amber-300 animate-pulse leading-relaxed">
+              Perfect Eggs in Minutes!
+            </h2>
+          </div>
         
         <button 
           onClick={toggleTheme}
@@ -40,10 +45,6 @@ const Header: React.FC = () => {
             }
         </button>
         </div>
-
-        <h2 className="font-cursive text-xl sm:text-2xl text-amber-600 dark:text-amber-300 text-center mt-1 animate-pulse leading-relaxed">
-          Perfect Eggs in Minutes!
-        </h2>
       </div>
     </div>
   );

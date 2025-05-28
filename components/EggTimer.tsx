@@ -43,29 +43,44 @@ const EggTimer: React.FC = () => {
   useEffect(() => {
     if (timeLeft === 0 && isRunning) {
       setIsRunning(false);
-      // Create a more pleasant notification sound using Web Audio API
-      try {
-        const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
-        const oscillator = audioContext.createOscillator();
-        const gainNode = audioContext.createGain();
-        
-        oscillator.connect(gainNode);
-        gainNode.connect(audioContext.destination);
-        
-        // Create a pleasant bell-like sound
-        oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
-        oscillator.frequency.setValueAtTime(600, audioContext.currentTime + 0.1);
-        oscillator.frequency.setValueAtTime(800, audioContext.currentTime + 0.2);
-        
-        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
-        
-        oscillator.start(audioContext.currentTime);
-        oscillator.stop(audioContext.currentTime + 1);
-      } catch (error) {
-        // Fallback to simple beep if Web Audio API fails
-        console.log("Timer completed!");
-      }
+      
+      // Try to play sound with fallbacks for mobile
+      const playNotificationSound = async () => {
+        try {
+          // Create a more pleasant notification sound using Web Audio API
+          const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+          
+          // Resume audio context if it's suspended (required for mobile)
+          if (audioContext.state === 'suspended') {
+            await audioContext.resume();
+          }
+          
+          const oscillator = audioContext.createOscillator();
+          const gainNode = audioContext.createGain();
+          
+          oscillator.connect(gainNode);
+          gainNode.connect(audioContext.destination);
+          
+          // Create a pleasant bell-like sound
+          oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+          oscillator.frequency.setValueAtTime(600, audioContext.currentTime + 0.1);
+          oscillator.frequency.setValueAtTime(800, audioContext.currentTime + 0.2);
+          
+          gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+          gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
+          
+          oscillator.start(audioContext.currentTime);
+          oscillator.stop(audioContext.currentTime + 1);
+        } catch (error) {
+          // Fallback for mobile: vibration if available
+          if ('vibrate' in navigator) {
+            navigator.vibrate([200, 100, 200, 100, 200]);
+          }
+          console.log("Timer completed!");
+        }
+      };
+      
+      playNotificationSound();
     }
   }, [timeLeft, isRunning]);
 
@@ -82,6 +97,16 @@ const EggTimer: React.FC = () => {
       setTimeLeft(totalTime);
     }
     setIsRunning(true);
+    
+    // Initialize audio context on user interaction (required for mobile)
+    try {
+      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+      if (audioContext.state === 'suspended') {
+        audioContext.resume();
+      }
+    } catch (error) {
+      // Audio not supported, will fall back to vibration
+    }
   }, [isRunning, timeLeft, totalTime]);
 
   const pauseTimer = useCallback(() => setIsRunning(false), []);
