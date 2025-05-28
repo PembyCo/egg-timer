@@ -41,11 +41,6 @@ const nextConfig = {
       },
     ];
   },
-  
-  // Enable CSS optimization for production
-  experimental: {
-    optimizeCss: true, 
-  },
 };
 
 module.exports = nextConfig; 
