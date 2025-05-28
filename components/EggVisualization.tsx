@@ -8,8 +8,8 @@ interface EggVisualizationProps {
 
 const EggVisualization: React.FC<EggVisualizationProps> = ({ fillPercentage }) => {
   return (
-    <div className="flex justify-center mb-6">
-      <div className="relative w-44 h-64">
+    <div className="flex justify-center mb-4">
+      <div className="relative w-32 h-48 sm:w-44 sm:h-64">
         <svg 
           className="w-full h-full" 
           viewBox="0 0 100 140"

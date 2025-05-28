@@ -39,13 +39,33 @@ const EggTimer: React.FC = () => {
     return () => clearInterval(timer);
   }, [isRunning, timeLeft]);
 
-  // Timer completion effect
+  // Timer completion effect with better sound
   useEffect(() => {
     if (timeLeft === 0 && isRunning) {
       setIsRunning(false);
-      new Audio("https://www.soundjay.com/buttons/beep-01a.mp3")
-        .play()
-        .catch(() => {});
+      // Create a more pleasant notification sound using Web Audio API
+      try {
+        const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        // Create a pleasant bell-like sound
+        oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+        oscillator.frequency.setValueAtTime(600, audioContext.currentTime + 0.1);
+        oscillator.frequency.setValueAtTime(800, audioContext.currentTime + 0.2);
+        
+        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
+        
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 1);
+      } catch (error) {
+        // Fallback to simple beep if Web Audio API fails
+        console.log("Timer completed!");
+      }
     }
   }, [timeLeft, isRunning]);
 
@@ -71,6 +91,14 @@ const EggTimer: React.FC = () => {
     setTimeLeft(0);
   }, []);
 
+  const handlePlayPause = useCallback(() => {
+    if (isRunning) {
+      pauseTimer();
+    } else {
+      startTimer();
+    }
+  }, [isRunning, startTimer, pauseTimer]);
+
   // Custom time handlers
   const handleCustomTimeSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -90,10 +118,10 @@ const EggTimer: React.FC = () => {
   const displaySeconds = Math.floor(timeLeft % 60);
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 max-w-md w-full">
+    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-4 sm:p-6 max-w-md w-full">
       <section>
         <h2 className="sr-only">Cooking Time Selection</h2>
-        <div className="grid grid-cols-2 gap-3 mb-6 w-full">
+        <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-4 sm:mb-6 w-full">
           {Object.entries(EGG_TIMES).map(([type, { label, minutes }]) => (
             <button
               key={type}
@@ -102,7 +130,7 @@ const EggTimer: React.FC = () => {
                 setShowCustomInput(false);
                 if (!isRunning) setTimeLeft(0);
               }}
-              className={`w-full py-3 rounded-lg transition-colors text-center font-medium text-lg ${
+              className={`w-full py-2 sm:py-3 rounded-lg transition-colors text-center font-medium text-base sm:text-lg ${
                 selectedType === type
                   ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-md"
                   : "bg-white dark:bg-gray-700 border border-amber-200 dark:border-amber-700 text-amber-700 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-gray-600"
@@ -114,14 +142,14 @@ const EggTimer: React.FC = () => {
           ))}
           <button
             onClick={handleCustomButtonClick}
-            className={`w-full py-3 rounded-lg transition-colors flex items-center justify-center gap-2 font-medium text-lg ${
+            className={`w-full py-2 sm:py-3 rounded-lg transition-colors flex items-center justify-center gap-2 font-medium text-base sm:text-lg ${
               selectedType === "custom" && !showCustomInput
                 ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-md"
                 : "bg-white dark:bg-gray-700 border border-amber-200 dark:border-amber-700 text-amber-700 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-gray-600"
             }`}
             aria-pressed={selectedType === "custom"}
           >
-            <FaCog className="w-4 h-4" aria-hidden="true" title="Settings icon" /> 
+            <FaCog className="w-3 h-3 sm:w-4 sm:h-4" aria-hidden="true" title="Settings icon" /> 
             {selectedType === "custom" && !showCustomInput 
               ? `Custom (${customMinutes}m)` 
               : "Custom"
@@ -152,39 +180,39 @@ const EggTimer: React.FC = () => {
       {/* Timer display */}
       <section>
         <h3 className="sr-only">Timer Display</h3>
-        <div className="text-4xl font-mono text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-yellow-600 dark:from-amber-400 dark:to-yellow-500 font-bold">
+        <div className="text-2xl sm:text-4xl font-mono text-center mb-3 sm:mb-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-yellow-600 dark:from-amber-400 dark:to-yellow-500 font-bold">
           {String(displayMinutes).padStart(2, "0")}:{String(displaySeconds).padStart(2, "0")}
         </div>
       </section>
 
-      {/* Timer controls */}
+      {/* Timer controls - Compact for mobile, normal for desktop */}
       <section>
         <h3 className="sr-only">Timer Controls</h3>
-        <div className="flex justify-center gap-4">
+        <div className="flex justify-center gap-3 sm:gap-4">
           <button
             onClick={isRunning ? pauseTimer : startTimer}
             disabled={timeLeft === 0 && isRunning}
-            className="p-4 rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 text-white hover:from-amber-600 hover:to-yellow-600 disabled:opacity-50 disabled:from-gray-300 disabled:to-gray-300 shadow-md transition-all"
+            className="p-3 sm:p-4 rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 text-white hover:from-amber-600 hover:to-yellow-600 disabled:opacity-50 disabled:from-gray-300 disabled:to-gray-300 shadow-md transition-all"
             aria-label={isRunning ? "Pause timer" : "Start timer"}
           >
-            {isRunning ? <FaPause aria-hidden="true" title="Pause icon" /> : <FaPlay aria-hidden="true" title="Play icon" />}
+            {isRunning ? <FaPause className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" title="Pause icon" /> : <FaPlay className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" title="Play icon" />}
           </button>
           <button
             onClick={resetTimer}
             disabled={timeLeft === 0 && !isRunning}
-            className="p-4 rounded-full bg-white dark:bg-gray-700 border border-red-300 dark:border-red-500 text-red-500 hover:bg-red-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:text-gray-400 disabled:border-gray-200 disabled:hover:bg-white dark:disabled:hover:bg-gray-700 shadow-md transition-all"
+            className="p-3 sm:p-4 rounded-full bg-white dark:bg-gray-700 border border-red-300 dark:border-red-500 text-red-500 hover:bg-red-50 dark:hover:bg-gray-600 disabled:opacity-50 disabled:text-gray-400 disabled:border-gray-200 disabled:hover:bg-white dark:disabled:hover:bg-gray-700 shadow-md transition-all"
             aria-label="Reset timer"
           >
-            <FaRedo aria-hidden="true" title="Reset icon" />
+            <FaRedo className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" title="Reset icon" />
           </button>
         </div>
       </section>
 
       {/* Completion notification */}
       {timeLeft === 0 && isRunning && (
-        <section className="mt-4">
+        <section className="mt-3 sm:mt-4">
           <h3 className="sr-only">Timer Complete</h3>
-          <div className="text-center text-amber-600 dark:text-amber-400 font-medium bg-amber-50 dark:bg-amber-900/20 p-3 rounded-lg border border-amber-200 dark:border-amber-700 animate-pulse">
+          <div className="text-center text-amber-600 dark:text-amber-400 font-medium bg-amber-50 dark:bg-amber-900/20 p-2 sm:p-3 rounded-lg border border-amber-200 dark:border-amber-700 animate-pulse text-sm sm:text-base">
             Your egg is ready!
           </div>
         </section>
