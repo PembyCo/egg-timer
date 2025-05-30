@@ -2,8 +2,22 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Privacy Policy - Eggs On Time',
-  description: 'Privacy policy for the Eggs On Time egg timer application.',
+  title: 'Privacy Policy - Eggs On Time | Data Protection & Cookie Policy',
+  description: 'Learn how Eggs On Time protects your privacy. Our comprehensive privacy policy covers data collection, cookies, GDPR compliance, and your rights.',
+  openGraph: {
+    title: 'Privacy Policy - Eggs On Time',
+    description: 'Privacy policy for the Eggs On Time egg timer application.',
+    url: 'https://eggsontime.app/legal/privacy',
+    siteName: 'Eggs On Time',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Privacy Policy - Eggs On Time',
+    description: 'Privacy policy for the Eggs On Time egg timer application.',
+    site: '@eggsontime',
+    creator: '@pembyCo',
+  },
 };
 
 export default function PrivacyPage() {

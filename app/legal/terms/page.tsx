@@ -2,8 +2,22 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Terms & Conditions - Eggs On Time',
-  description: 'Terms and conditions for using the Eggs On Time egg timer application.',
+  title: 'Terms & Conditions - Eggs On Time | Legal Terms for Egg Timer App',
+  description: 'Read the complete terms and conditions for using the Eggs On Time egg timer application. Learn about usage rights, disclaimers, and legal requirements.',
+  openGraph: {
+    title: 'Terms & Conditions - Eggs On Time',
+    description: 'Terms and conditions for using the Eggs On Time egg timer application.',
+    url: 'https://eggsontime.app/legal/terms',
+    siteName: 'Eggs On Time',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Terms & Conditions - Eggs On Time',
+    description: 'Terms and conditions for using the Eggs On Time egg timer application.',
+    site: '@eggsontime',
+    creator: '@pembyCo',
+  },
 };
 
 export default function TermsPage() {
