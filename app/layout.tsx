@@ -41,6 +41,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  other: {
+    'google-adsense-account': 'ca-pub-5831273475381084',
+  },
   icons: {
     icon: [
       { url: '/favicon-square.svg', type: 'image/svg+xml' },
@@ -86,13 +89,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${montserrat.variable} ${poppins.variable} ${pacifico.variable}`}>
       <body className="flex flex-col min-h-screen">
-        {/* Google AdSense */}
-        <Script
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5831273475381084"
-          strategy="afterInteractive"
-          crossOrigin="anonymous"
-        />
-        
         {/* Google Analytics with Consent Mode */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-FP7FK0DTHJ"
